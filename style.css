@@ -1,101 +1,4 @@
-.contactForm {
-  display: flex;
-  flex-direction: column;
-  align-items: center;      /* Tengah secara horizontal */ 
-  min-height: 100vh;        /* Penuhi tinggi layar */
-}
-
-/* Judul di tengah */
-.contactForm h1 {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.contactForm form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  width: 500px;             /* Lebar form */
-  text-align: left;         /* Isi form tetap rata kiri */
-}
-
-.floatingForm {
-    width: 300px;
-    padding: 40px;
-    background: #9b4b4b ;
-    border-radius: 8px;
-    border: ipx solid #abbeda;
-}
-
-.formGroup {
-    position: relative;
-    margin-bottom: 10px;
-}
-
-.formGroup input,
-.formGroup textarea {
-    width: 500px;
-    padding: 10px 5px;
-    border: none;
-    border-radius: 5px;
-    background-color: #ccc;
-    color: #d99191;
-    font-size: 16px;
-    outline: none;
-}
-
-.formGroup label {
-    position: absolute;
-    top: 10px;
-    left: 5px;
-    font-size: 18px;
-    color: #f98080;
-    pointer-events: none;
-    transition: all 0.3s ease;
-}
-
-.formGroup .highlightLabel {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 3px;
-    background: #2ecc71;
-    transition: all 0.3s ease;
-}
-
-.formGroup input:focus~label,
-.formGroup textarea:focus~label,
-.formGroup input:valid~label,
-.formGroup textarea:valid~label {
-    top: -18px;
-    font-size: 16px;
-    color: #2ecc71;
-}
-
-.contactForm button {
-  width: 100%;
-  padding: 15px; /* sebelumnya 10px */
-  border: none;
-  background-color: #edddc1;
-  color: #c27201;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 16px; 
-  transition: 0.3s;
-}
-
-.contactForm button:hover {
-    background: #ecc902;
-}
-
-#notif {
-    margin-top: 20px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-    * {
+    *{
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -107,7 +10,7 @@
             color: #333;
             line-height: 1.6;
             background-color: white;
-            /* overflow-x: hidden; */
+            /* overflow-x: hidden*/
         }
 
         /* Header Navigation */
@@ -844,3 +747,125 @@
                 grid-template-columns: 1fr;
             }
         }
+
+
+/* Hero Section */
+.heroContact {
+  position: relative;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(180deg, #ffe89c, #f9b4c4, #d9b9ff);
+  overflow: hidden;
+}
+
+.heroContact h1 {
+  color: #762a46;
+  font-size: 40px;
+  z-index: 2;
+  position: relative;
+}
+
+/* Contact Section */
+.contactSection {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.contactSection h2 {
+  font-size: 2rem;
+  text-align: center;
+  color: #3a2d2d;
+  margin-bottom: 10px;
+}
+
+.contactSection p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+/*  Form Container */
+#contactForm {
+  width: 100%;
+  max-width: 550px; 
+  margin: 0 auto; 
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#contactForm input,
+#contactForm textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #c9a4b8;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-family: "Poppins", sans-serif;
+}
+
+#contactForm input:focus,
+#contactForm textarea:focus {
+  outline: none;
+  border-color: #e79ac2;
+  box-shadow: 0 0 5px #f3c1d3;
+}
+
+#contactForm button {
+  background-color: #c9a4b8;
+  color: white;
+  border: none;
+  padding: 12px 0;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+#contactForm button:hover {
+  background-color: #b3889c;
+}
+
+/* Notifikasi di bawah form */
+#notif {
+  margin-top: 20px;
+  text-align: center;
+  font-weight: 600;
+  transition: all 0.4s ease;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.notif.success {
+  color: #155724;
+  background-color: #d4edda;
+  border: 2px solid #c3e6cb;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.notif.error {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 2px solid #f5c6cb;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* Responsif */
+@media (max-width: 600px) {
+  #contactForm {
+    max-width: 90%;
+  }
+
+  #contactForm button {
+    font-size: 0.95rem;
+  }
+}
+
