@@ -13,7 +13,7 @@
 </head>
 
 <body>
-<!-- Header -->
+    <!-- Header -->
     <header class="navbar">            
       <div class="navbarLogo">
         <img src="./images/pawHomeLogo.png" alt="logo pawHome">
@@ -28,33 +28,25 @@
       </nav>
     </header>
 
-    <!-- Contact Section-->
-    <div class="contactForm">
-        <h1>Contact Us</h1>
-        <form id="contactForm" class="floating-form">
-            <div class="formGroup">
-                <input type="text" id="name" name="name" required>
-                <label for="name">Name</label>
-                <span class="highlightLabel"></span>
-            </div>
+<!-- Hero Section -->
+  <section class="heroContact">
+    <h1>Contact Us</h1>
+  </section>
 
-            <div class="formGroup">
-                <input type="email" id="email" name="email" required>
-                <label for="email">Email</label>
-                <span class="highlightLabel"></span>
-            </div>
+  <!-- Contact Form -->
+  <section class="contactSection">
+    <p>Punya ide, pertanyaan, atau sekadar ingin menyapa? Tinggalkan pesanmu di bawah miaw~</p>
 
-            <div class="formGroup">
-                <textarea id="message" name="message" rows="4" required></textarea>
-                <label for="message">Message</label>
-                <span class="highlightLabel"></span>
-            </div>
+<form id="contactForm">
+  <input type="text" id="nama" placeholder="Nama">
+  <input type="email" id="email" placeholder="Email Address">
+  <textarea id="pesan" placeholder="Pesan"></textarea>
+  <button type="submit">Send Message</button>
+</form>
 
-            <button type="submit">Kirim</button>
-        </form>
+<div id="notif"></div>
 
-        <p id="notif"></p>
-    </div>
+  </section>
 
   <!-- Footer -->
     <footer class="footer" id="contact">
