@@ -1,27 +1,43 @@
+  // Ambil elemen form dan area notifikasi
+  const form = document.getElementById('contactForm');
+  const notif = document.getElementById('notif');
 
-const form = document.getElementById('contactForm');
-const notif = document.getElementById('notif');
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Mencegah reload halaman
 
-form.addEventListener('submit', (event) => {
-  event.preventDefault(); // Cegah reload halaman
+    // Ambil nilai input
+    const nama = document.getElementById('nama').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const pesan = document.getElementById('pesan').value.trim();
 
-  const name = document.getElementById('name').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const message = document.getElementById('message').value.trim();
+    // Reset tampilan notifikasi
+    notif.textContent = '';
+    notif.className = ''; // hapus class lama
 
-  // Reset notifikasi sebelumnya
-  notif.textContent = '';
-  notif.style.color = '';
+    // Validasi input kosong
+    if (nama === '' || email === '' || pesan === '') {
+      notif.textContent = '😿 Miaww~ sepertinya ada yang lupa diisi, nih!';
+      notif.classList.add('notif', 'error');
+    } else {
+      notif.textContent = '🐾 Miaw~ Pesanmu sudah nyampe di pangkuan admin PawHome!';
+      notif.classList.add('notif', 'success');
+      form.reset(); // kosongkan form
+    }
 
-  // Validasi input kosong
-  if (name === '' || email === '' || message === '') {
-    notif.textContent = 'Semua kolom wajib diisi!';
-    notif.style.color = 'red';
-  } else {
-    notif.textContent = 'Pesan berhasil dikirim!';
-    notif.style.color = 'green';
-    form.reset(); // Kosongkan form setelah kirim
-  }});
+    // Tampilkan notifikasi dengan animasi muncul
+    notif.style.opacity = '1';
+    notif.style.transform = 'translateY(0)';
+
+    // Hilangkan otomatis setelah 3 detik
+    setTimeout(() => {
+      notif.style.opacity = '0';
+      notif.style.transform = 'translateY(10px)';
+      setTimeout(() => {
+        notif.textContent = '';
+        notif.className = '';
+      }, 400);
+    }, 3000);
+  });
 
       // Untuk blur navbar scroll effect
       window.addEventListener("scroll", () => {
