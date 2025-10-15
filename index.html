@@ -1,17 +1,235 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" href="style.css">
-            <title>Document</title>
-</head>
-<body>
-            <h1>HELLO WORLD</h1>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PawHome - Find Your Perfect Pawtner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="./images/pawIcon.png"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  </head>
+  <body>
+
+    <!-- Header -->
+    <header class="navbar">            
+      <div class="navbarLogo">
+        <img src="./images/pawHomeLogo.png" alt="logo pawHome">
+      </div>
+      <nav>
+        <ul class="nav">
+          <li><a href="index.html" class="navLink">Home</a></li>
+          <li><a href="services.html" class="navLink">Service</a></li>
+          <li><a href="about.html" class="navLink">About</a></li>
+          <li><a href="contact.html" class="navLink">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+            <img src="./images/kuning.svg" alt="decor top right" class="heroDecor heroDecorLeft" />
+            <img src="./images/merah.svg" alt="decor bottom left" class="heroDecor heroDecorRight" />
+            <div class="heroContent">
+              <h1 class="heroTitle" id="colorfulTitle">Find Your Perfect Pawtner</h1>
+              <img src="./images/pawPink.png" alt="paw pink" class="paw1" />
+              <img src="./images/pawBlue.png" alt="paw blue" class="paw2" />
+        <h2 class="heroSubTitle">Temukan Pawtner terbaik yang akan selalu menyambutmu pulang dengan kehangatan meownya</h2>
+        <a href="#adopt" class="heroButton">Adopt Now!</a>
+      </div>
+      <div class="heroImage">
+        <img
+          src="./images/kittenCarousel.png"
+          alt="Cute kitten"
+        />
+  </div>
 
 
+      </div>
+    </section>
+
+    <!-- Category Section -->
+    <section class="category">
+      <div class="categoryGrid">
+  <div class="categoryItem">
+    <span class="material-symbols-outlined">pets</span>
+    <p>120+ kucing diadopsi</p>
+  </div>
+
+  <div class="categoryItem">
+    <span class="material-symbols-outlined">volunteer_activism</span>
+    <p>90+ Adopter aktif di Indonesia</p>
+  </div>
+
+  <div class="categoryItem">
+    <span class="material-symbols-outlined">home</span>
+    <p>15 Shelter & Komunitas</p>
+  </div>
+
+  <div class="categoryItem">
+    <span class="material-symbols-outlined">location_city</span>
+    <p>Aktif di 7 Kota Besar</p>
+  </div>
+
+  <div class="categoryItem">
+    <span class="material-symbols-outlined">pets</span>
+    <p>Pawdogs segera datang</p>
+  </div>
+</div>
+      </div>
+    </section>
+
+    <!-- Pet Cards Section -->
+    <section class="pets" id="adopt">
+      <h2 class="petsTitle">Kami Menyayangi Semua Jenis Kucing</h2>
+      <p class="petsSubTitle">
+        Temukan berbagai jenis hewan peliharaan yang siap diadopsi dan cintai mereka seperti keluarga.
+      </p>
+      <div class="petsGrid" id="petsGrid">
+        <!-- <div class="petCard">
+          <div class="petCardImage">gambar kucing</div>
+          <div class="petCardContent">
+            <div class="petCardName">Nama</div>
+            <div class="petCardType">Jenis</div>
+          </div>
+        </div> -->
+      </div>
+    </section>
+
+    <!-- Service Section -->
+    <section class="service-adoptPaw" id="service">
+      <div class="serviceContainer">
+        <div class="serviceImage adoptPaw">
+          <img src="./images/adoptPaw-img.png" alt="">
+        </div>
+        <div class="serviceContent">
+          <h2 class="serviceTitle">
+            Temukan kucing impianmu dan biarkan kasih tumbuh dari tatapan pertama.
+          </h2>
+          <div class="serviceLinks">
+            <a href="#" class="serviceLink">Try AdoptPaw →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="service-openPaw" id="service">
+      <div class="serviceContainer serviceContainerReverse">
+        <div class="serviceImage">
+          <img src="./images/openPaw-img.png" alt="">
+        </div>
+        <div class="serviceContent">
+          <h2 class="serviceTitle reverse">Untuk kamu yang ingin memberi mereka peluang hidup lebih baik</h2>
+          <div class="serviceLinks">
+            <a href="#" class="serviceLink reverse"> Try OpenPaw →</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
 
-<script src="main.js"></script>
-</body>
+    <!-- Care Section -->
+    <section class="care">
+      <h2 class="careTitle">Love, Feed, Play — The Art of Cat Care</h2>
+      <div class="careGrid">
+        <div class="careCard">
+          <div class="careCardImage">
+            <img src="./images/feed.jpg" alt="">
+          </div>
+          <div class="careCardText">Beri Makan Tempat Waktu</div>
+        </div>
+        <div class="careCard">
+          <div class="careCardImage">
+            <img src="./images/health.jpg" alt="">
+          </div>
+          <div class="careCardText">Cek Kesehatan Secara Rutin</div>
+        </div>
+        <div class="careCard">
+          <div class="careCardImage">
+            <img src="./images/play.png" alt="">
+          </div>
+          <div class="careCardText">Ajak Bermain Tiap Hari</div>
+        </div>
+        <div class="careCard">
+          <div class="careCardImage">
+            <img src="./images/clean.jpg" alt="">
+          </div>
+          <div class="careCardText">Rawat Bulu & Kesehatan Bulu</div>
+        </div>
+        <div class="careCard">
+          <div class="careCardImage">
+            <img src="./images/shit.jpg" alt="">
+          </div>
+          <div class="careCardText">Latih Buang Air di Tempatnya</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+      <div class="footerContainer">
+        <div class="footerBrand">
+          <div class="footerLogo">
+            <div class="footerLogoIcon">
+              <img src="./images/pawHomeLogo.png" alt="logo pawHome">
+            </div>
+          </div>
+          <p class="footerTagline">Where every paw finds a loving home</p>
+          <div class="footerSocial">
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-whatsapp"></i>
+            <i class="fab fa-twitter"></i>
+          </div>
+        </div>
+
+        <div class="footerLinks">
+          <h3 class="footerSectionTitle">Quick Links</h3>
+          <ul class="footerList">
+            <li class="footerListItem">
+              <a href="index.html" class="footerListLink">Home</a>
+            </li>
+            <li class="footerListItem">
+              <a href="about.html" class="footerListLink">About</a>
+            </li>
+            <li class="footerListItem">
+              <a href="services.html" class="footerListLink">Service</a>
+            </li>
+            <li class="footerListItem">
+              <a href="contact.html" class="footerListLink">Contact</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footerLinks">
+          <h3 class="footerSectionTitle">Our Service</h3>
+          <ul class="footerlist">
+            <li class="footerListItem">
+              <a href="#" class="footerListLink">AdoptPaw</a>
+            </li>
+            <li class="footerListItem">
+              <a href="#" class="footerListLink">OpenPaw</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footerContact">
+          <h3 class="footerSectionTitle">Stay Connected</h3>
+          <ul class="footerList">
+            <li class="footerListItem">@pawhome.com</li>
+            <Li class="footerlistItem">Surabaya, Indonesia</li>
+          </ul>
+            </div>
+        </div>
+      <div class="footerBottom">
+        Kelompok 3 2024C | Copyright © 2025 PawHome.
+      </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="pets.js"></script>
+  </body>
 </html>
