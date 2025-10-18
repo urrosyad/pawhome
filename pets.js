@@ -49,11 +49,11 @@ const pets = [
   },
 ];
 
-// ambil container
+// SECTION PET
 const petsGrid = document.getElementById("petsGrid");
 
-// generate otomatis isi card
-pets.forEach((pet, index) => {
+// generate otomatis isi card hanya 8 data pertama
+pets.slice(0, 8).forEach((pet, index) => {
   const card = document.createElement("div");
   card.classList.add("petCard");
   card.setAttribute("data-number", String(index + 1).padStart(2, "0"));
@@ -71,3 +71,4 @@ pets.forEach((pet, index) => {
 
   petsGrid.appendChild(card);
 });
+

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PawHome - Our Services</title>
+
+    <!-- Font & Icon -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="./images/pawIcon.png"/>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+</head>
+  <body>
+    <header class="navbar">            
+      <div class="navbarLogo">
+        <img src="./images/pawHomeLogo.png" alt="logo pawHome">
+      </div>
+      <nav>
+        <ul class="nav">
+          <li><a href="index.html" class="navLink">Home</a></li>
+          <li><a href="services.html" class="navLink">Service</a></li>
+          <li><a href="about.html" class="navLink">About</a></li>
+          <li><a href="contact.html" class="navLink">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+<section class="heroServiceSection">
+    <div class="heroServiceOverlay"></div>
+    <div class="heroServiceContent">
+        <h1 class="heroServiceTitle">Helping Every Paw<br>Find a Loving Home</h1>
+    </div>
+</section>
+
+
+    <section class="pageContainer">
+        <h1 class="sectionTitle">OUR SERVICE</h1>
+        <div class="servicesGrid">
+            <!-- AdoptPaw Card -->
+            <div class="serviceCard" data-service="adopt">
+                <h2 class="cardTitle">AdoptPaw</h2>
+                
+
+                <img src="./images/AdoptPawLogo.png" alt="AdoptPaw Logo" class="adoptLogoCircle">
+                <p class="cardDescription">
+                    Temukan sahabat berbulu yang cocok dengan karatermu dan siap kamu rawat.
+                </p>
+
+                <button class="actionButton" onclick="handleAdopt()">
+                    <span style="position: relative; z-index: 1;">Start Open Adopt</span>
+                </button>
+            </div>
+
+            <!-- OpenPaw Card -->
+            <div class="serviceCard" data-service="open">
+                <h2 class="cardTitle">OpenPaw</h2>
+                
+                <img src="./images/OpenPawLogo.png" alt="AdoptPaw Logo" class="adoptLogoCircle">
+
+                <p class="cardDescription">
+                    Buka adopsi hewan peliharaanmu untuk menemukan keluarga baru yang menyayanginya.
+                </p>
+
+                <button class="actionButton" onclick="handleOpenPaw()">
+                    <span style="position: relative; z-index: 1;">Find ur Cat Now</span>
+                </button>
+            </div>
+        </div>
+</section>
+
+
+    <footer class="footer" id="contact">
+      <div class="footerContainer">
+        <div class="footerBrand">
+          <div class="footerLogo">
+            <div class="footerLogoIcon">
+              <img src="./images/pawHomeLogo.png" alt="logo pawHome">
+            </div>
+          </div>
+          <p class="footerTagline">Where every paw finds a loving home</p>
+          <div class="footerSocial">
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-whatsapp"></i>
+            <i class="fab fa-twitter"></i>
+          </div>
+        </div>
+
+        <div class="footerLinks">
+          <h3 class="footerSectionTitle">Quick Links</h3>
+          <ul class="footerList">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Service</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footerLinks">
+          <h3 class="footerSectionTitle">Our Service</h3>
+          <ul class="footerList">
+            <li><a href="#">AdoptPaw</a></li>
+            <li><a href="#">OpenPaw</a></li>
+          </ul>
+        </div>
+
+        <div class="footerContact">
+          <h3 class="footerSectionTitle">Stay Connected</h3>
+          <ul class="footerList">
+            <li>@pawhome.com</li>
+            <li>Surabaya, Indonesia</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footerBottom">
+        Kelompok 3 2024C | Copyright © 2025 PawHome.
+      </div>
+    </footer>
+
+
+    <script>
+  // DOM Elements
+        const serviceCards = document.querySelectorAll('.serviceCard');
+        const catImages = document.querySelectorAll('.catImage');
+        const actionButtons = document.querySelectorAll('.actionButton');
+
+        // Ripple Effect on Card Click
+        serviceCards.forEach(card => {
+            card.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+                
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // Cat Image Interaction
+        catImages.forEach((img, index) => {
+
+            // Parallax effect on mouse move
+            img.addEventListener('mousemove', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                
+                this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)scale(1.1)`;
+            });
+
+            img.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+            });
+        });
+
+        // Handle Adopt Button
+        function handleAdopt() {
+            console.log('Navigate to Adopt Page');
+            
+            const button = event.target.closest('.actionButton');
+            button.style.transform = 'scale(0.95)';
+            
+            setTimeout(() => {
+                button.style.transform = '';
+                alert('Mengarahkan ke halaman AdoptPaw... 🐾');
+                // window.location.href = 'adopt.html';
+            }, 200);
+        }
+
+        // Handle OpenPaw Button
+        function handleOpenPaw() {
+            console.log('Navigate to OpenPaw Page');
+            
+            const button = event.target.closest('.actionButton');
+            button.style.transform = 'scale(0.95)';
+            
+            setTimeout(() => {
+                button.style.transform = '';
+                alert('Mengarahkan ke halaman OpenPaw... 🏠');
+                // window.location.href = 'openpaw.html';
+            }, 200);
+        }
+
+        // Scroll Animation Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'none';
+                    setTimeout(() => {
+                        entry.target.style.animation = '';
+                    }, 10);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        [...serviceCards, ...catImages].forEach(el => observer.observe(el));
+
+        // Add floating animation to paw icons
+        document.querySelectorAll('.pawIcon').forEach(icon => {
+            icon.addEventListener('mouseenter', function() {
+                this.style.animation = 'none';
+                setTimeout(() => {
+                    this.style.animation = 'pawBounce 0.5s ease';
+                }, 10);
+            });
+        });
+
+        // Keyboard Navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+                const focusedCard = document.activeElement.closest('.serviceCard');
+                if (focusedCard) {
+                    const cards = Array.from(serviceCards);
+                    const currentIndex = cards.indexOf(focusedCard);
+                    const nextIndex = e.key === 'ArrowLeft' 
+                        ? (currentIndex - 1 + cards.length) % cards.length
+                        : (currentIndex + 1) % cards.length;
+                    
+                    cards[nextIndex].querySelector('.actionButton').focus();
+                }
+            }
+        });
+
+        // Log initialization
+        console.log('🐾 PawHome Service Page Loaded Successfully!');
+        console.log('📊 Total Services:', serviceCards.length);
+        console.log('🐱 Total Cat Images:', catImages.length);
+    </script>
+  </body>
+</html>
