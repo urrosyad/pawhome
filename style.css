@@ -10,14 +10,14 @@
             color: #333;
             line-height: 1.6;
             background-color: white;
-            /* overflow-x: hidden; */
+            overflow-x: hidden;
         }
 
         .reveal {
         opacity: 0;
         transform: translateY(40px);
         transition: all 0.8s ease;
-        }
+        }   
 
         .reveal.active {
         opacity: 1;
@@ -30,18 +30,19 @@
             position: sticky;
             width: 100%;
             z-index: 100;
-            background: #fffb204f;
+            background: #fffd9e;
             padding: 1.5rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             transition: backdrop-filter 0.3s ease, background 0.3s ease;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-radius: 0px 0px 40px 40px;
         }
 
         .navbar.scrolled{
             backdrop-filter: blur(10px);
-            background: #fffb204f;
+            background: #fffb2093;
             }
 
         .navbarLogo {
@@ -606,7 +607,6 @@
             margin-bottom: 1rem;
             font-weight: 500;
             color: #333;
-            text-shadow: 0 1px 2px rgba(255,255,255,0.8); /* Text shadow agar lebih terbaca */
         }
 
         .footerSocial {
@@ -753,9 +753,11 @@
         }
 
         .aboutHero {
-            background: linear-gradient(135deg, #FBF4F4 0%, #fff 100%);
+            /* background: linear-gradient(135deg, #FBF4F4 0%, #fff 100%); */
             padding: 4rem 2rem;
+            background-color: #FBF4F4 ;
             text-align: center;
+            margin-top: -3rem;
         }
 
         .aboutHeroTitle {
@@ -1123,7 +1125,7 @@
         font-size: 1rem;
         }
 
-        .adopt-btn {
+        .detailBtn {
             width: 100%;
             margin-top: 1rem;
             border: 2px solid #901c41;
@@ -1137,7 +1139,7 @@
             transition: all 0.3s ease;
         }
 
-        .adopt-btn:hover {
+        .detailBtn:hover {
         background-color: #901c41;
         color: white;
         }
@@ -1177,6 +1179,7 @@
         position: relative;
         height: 300px;
         display: flex;
+        margin-top: -3rem;
         align-items: center;
         justify-content: center;
         text-align: center;
@@ -1260,7 +1263,7 @@
 
         /* Notifikasi di bawah form */
         #notif {
-        margin-top: 20px;
+        margin-bottom: 20px;
         text-align: center;
         font-weight: 600;
         transition: all 0.4s ease;
@@ -1298,17 +1301,18 @@
     /* HALAMAN SERVICE */    
     /* HERO SERVICE (bagian atas halaman) */
     .heroServiceSection {
-    position: relative;
+    position: relative; 
     width: 100%;
-    height: 70vh;
-    min-height: 500px;
+    height: 50vh;
+    top: -2rem;
+    min-height: 600px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding-left: 8%;
+    padding-left: 3%;
     background-image: url("./images/carousell.jpeg");
     background-size: cover;
-    background-position: center;
+    background-position: 50% 65%;
     background-repeat: no-repeat;
     overflow: hidden;
     }
@@ -1330,11 +1334,11 @@
 
     .heroServiceTitle {
     color: white;
-    font-size: 3.5em;
-    font-weight: 700;
-    text-shadow: 2px 2px 15px rgba(0,0,0,0.3);
+    font-size: 5rem;
+    font-weight: 100;
+    /* text-shadow: 2px 2px 15px rgba(0,0,0,0.3); */
     line-height: 1.2;
-    max-width: 600px;
+    max-width: 800px;
     opacity: 0;
     animation: slideInServiceLeft 1s ease forwards 0.3s;
     }
@@ -1357,7 +1361,7 @@
     .sectionTitle {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #556b2f;
+    color: #333;
     margin-bottom: 3rem;
     }
 
@@ -1445,3 +1449,232 @@
     background: #444;
     transform: translateY(-2px);
     }
+
+
+/* ================================
+HALAMAN OPENPAW
+================================ */
+.openPawContainer{
+background-color: #FBF4F4;
+margin-top: -3rem;
+padding: 3rem 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+.openPawSection {
+  padding: 60px 20px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 900px;
+  margin: 2rem auto; /* tetap center secara container */
+  border: 2px solid #901C41;
+display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.openPawSection h2 {
+  font-size: 2rem;
+  color: #3a2d2d;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.openPawSection p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* ===== Form Container ===== */
+#openPawForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #3a2d2d;
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid #901c41;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* tombol */
+#openPawForm button {
+    width: 600px;
+max-width: 600px;
+  color: #ffff;
+  background-color: #901c41;
+  border: 2px;
+  padding: 12px 25px;
+  font-size: 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-weight: 600;
+}
+
+#openPawForm button:hover {
+    color: #ffff;
+    background-color: #531126;
+}
+
+/* Preview gambar */
+#previewContainer {
+  text-align: left;
+  margin-top: 10px;
+}
+
+#previewContainer img {
+  max-width: 200px;
+  border-radius: 10px;
+  border: 2px solid #e79ac2;
+  margin-top: 10px;
+}
+
+/* Notifikasi */
+.openPawContainer #notif {
+    width: 600px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  transition: all 0.4s ease;
+  opacity: 1;
+  transform: translateY(10px);
+}
+
+#notif.success {
+  color: #155724;
+  background-color: #d4edda;
+  border: 2px solid #c3e6cb;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#notif.error {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 2px solid #f5c6cb;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* Responsif */
+@media (max-width: 600px) {
+  .openPawSection {
+    padding: 40px 15px;
+  }
+}
+
+/* Spinner kecil di dalam tombol */
+.spinner {
+  border: 3px solid #fff;
+  border-top: 3px solid #901C41;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  margin-right: 8px;
+  animation: spin 0.8s linear infinite;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+button[disabled] {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+
+/* ================================
+HALAMAN DETAILPAW
+================================ */
+  .detailContainer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: white;
+      border-radius: 20px;
+      padding: 3rem 10rem;
+      /* width: 900px; */
+      width: 100%;
+      gap: 40px;
+      /* border: 1px solid red; */
+    }
+
+      .detailPaw {
+        flex: 1;
+      }
+
+      .detailPaw h2 {
+        margin-top: 0;
+        color: #a20045;
+      }
+
+      .detailPaw p {
+        margin: 6px 0;
+        font-size: 15px;
+        color: #333;
+      }
+
+      .catImg {
+        flex: 1;
+        text-align: center;
+      }
+
+      .catImg img {
+        width: 100%;
+        max-width: 350px;
+        border-radius: 20px;
+        object-fit: contain;
+      }
+
+      .adoptBtn {
+        margin-top: 20px;
+        background: #a20045;
+        color: white;
+        border: none;
+        padding: 0.7rem 4rem;
+        border-radius: 30px;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .adoptBtn:hover {
+        background: #820036;
+      }

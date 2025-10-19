@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,6 +10,10 @@
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/png" href="./images/pawIcon.png" />
     <link
@@ -17,7 +21,6 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
   </head>
-
   <body>
     <!-- Header -->
     <header class="navbar">
@@ -33,28 +36,8 @@
         </ul>
       </nav>
     </header>
+    <div class="detailContainer" id="catDetail"></div>
 
-    <!-- Hero Section -->
-    <section class="heroContact">
-      <h1>Contact Us</h1>
-    </section>
-
-    <!-- Contact Form -->
-    <section class="contactSection">
-      <p>
-        Punya ide, pertanyaan, atau sekadar ingin menyapa? Tinggalkan pesanmu di
-        bawah miaw~
-      </p>
-      <div id="notif"></div>
-      <form id="contactForm">
-        <input type="text" id="nama" placeholder="Nama" />
-        <input type="email" id="email" placeholder="Email Address" />
-        <textarea id="pesan" placeholder="Pesan"></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-    </section>
-
-    <!-- Footer -->
     <footer class="footer" id="contact">
       <div class="footerContainer">
         <div class="footerBrand">
@@ -71,7 +54,6 @@
             <i class="fab fa-twitter"></i>
           </div>
         </div>
-
         <div class="footerLinks">
           <h3 class="footerSectionTitle">Quick Links</h3>
           <ul class="footerList">
@@ -89,7 +71,6 @@
             </li>
           </ul>
         </div>
-
         <div class="footerLinks">
           <h3 class="footerSectionTitle">Our Service</h3>
           <ul class="footerlist">
@@ -114,48 +95,36 @@
         Kelompok 3 2024C | Copyright © 2025 PawHome.
       </div>
     </footer>
-
     <script>
-      const form = document.getElementById("contactForm");
-      const notif = document.getElementById("notif");
+      const cat = JSON.parse(localStorage.getItem("selectedCat"));
+      const container = document.getElementById("catDetail");
 
-      form.addEventListener("submit", function (event) {
-        event.preventDefault(); // Mencegah reload halaman
-
-        // Ambil nilai input
-        const nama = document.getElementById("nama").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const pesan = document.getElementById("pesan").value.trim();
-
-        // Reset tampilan notifikasi
-        notif.textContent = "";
-        notif.className = ""; // hapus class lama
-
-        // Validasi input kosong
-        if (nama === "" || email === "" || pesan === "") {
-          notif.textContent = "😿 Miaww~ sepertinya ada yang lupa diisi, nih!";
-          notif.classList.add("notif", "error");
-        } else {
-          notif.textContent =
-            "🐾 Miaw~ Pesanmu sudah nyampe di pangkuan admin PawHome!";
-          notif.classList.add("notif", "success");
-          form.reset(); // kosongkan form
-        }
-
-        // Tampilkan notifikasi dengan animasi muncul
-        notif.style.opacity = "1";
-        notif.style.transform = "translateY(0)";
-
-        if (notif.classList.contains("success")) {
-          setTimeout(() => {
-          notif.style.opacity = "0";
-          notif.style.transform = "translateY(10px)";
-          setTimeout(() => {
-            notif.textContent = "";
-            notif.className = "";
-          }, 400);
-        }, 3000);
-        }});
+      if (!cat) {
+        container.innerHTML = "<p>😿 Data kucing tidak ditemukan.</p>";
+      } else {
+        container.innerHTML = `
+        <div class="detailPaw">
+          <h2>${cat.name}</h2>
+          <p><b>Jenis:</b> ${cat.type}</p>
+          <p><b>Pemilik:</b> ${cat.owner}</p>
+          <p><b>Jenis Kelamin:</b> ${cat.gender}</p>
+          <p><b>Deskripsi:</b> ${cat.description}</p>
+          <p><b>Makanan Kesukaan:</b> ${cat.favoriteFood}</p>
+          <p><b>Mainan Favorit:</b> ${cat.favoriteToy}</p>
+          <button class="adoptBtn">Adopsi Sekarang</button>
+        </div>
+        <div class="catImg">
+          <img src="${cat.img}" alt="${cat.name}">
+        </div>
+      `;
+      }
+      
+      document.querySelector(".adoptBtn").addEventListener("click", () => {
+      alert(`Selamat! Kamu telah mengadopsi ${cat.name} 🐾`);
+      window.location.href = "index.html"; // kembali ke halaman home
+      });
     </script>
+    <script src="paws.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>
