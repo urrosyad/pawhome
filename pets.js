@@ -14,7 +14,7 @@ const pets = [
   {
     name: "Luna",
     type: "Domestic Shorthair",
-    img: "./images/Luna .png",
+    img: "./images/Luna.png",
     color: "#e5f7ff",
   },
   {
