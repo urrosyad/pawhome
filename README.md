@@ -19,6 +19,9 @@ Proyek ini dibuat untuk memudahkan pengguna mencari, mengenal, dan mengadopsi ku
 - CSS3 — styling dan layout  
 - Vanilla JavaScript — manipulasi DOM, event handling, animasi ringan  
 - Folder `images/` — berisi aset gambar kucing dan ilustrasi lainnya  
+
+## 🌞 Link Website Hosting vie Github
+https://urrosyad.github.io/pawhome
 - Website ini bersifat **static**, artinya langsung bisa dijalankan di browser tanpa backend.
 
 
