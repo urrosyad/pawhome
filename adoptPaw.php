@@ -1,33 +1,9 @@
-<!DOCTYPE html>
-<html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PawHome - Find Your Perfect Pawtner</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" type="image/png" href="./images/pawIcon.png"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-  </head>
-  <body>
-
-    <!-- Header -->
-    <header class="navbar">            
-      <div class="navbarLogo">
-        <img src="./images/pawHomeLogo.png" alt="logo pawHome">
-      </div>
-      <nav>
-        <ul class="nav">
-          <li><a href="index.html" class="navLink">Home</a></li>
-          <li><a href="services.html" class="navLink">Service</a></li>
-          <li><a href="about.html" class="navLink">About</a></li>
-          <li><a href="contact.html" class="navLink">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+<?php
+require_once "app/config.php";      
+include "views/layouts/header.php";
+include "views/layouts/navbar.php";
+// include "app/db.php"
+?>
 
   <section class="adoptPaw-section">
     <h1 class="adoptPaw-title">Temukan Sahabat Barumu 🐾</h1>
