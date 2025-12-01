@@ -1,8 +1,9 @@
 <?php
-require_once "app/config.php";
-include "views/layouts/header.php";
-include "views/layouts/navbar.php";
-// include "app/db.php"
+require_once  __DIR__ ."/app/config.php";
+require_once __DIR__ ."/app/db.php";
+include __DIR__ ."/views/layouts/header.php";
+include __DIR__ ."/views/layouts/navbar.php";
+validateSession($pdo);
 ?>
 
 <!-- About Hero Section -->

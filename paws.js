@@ -139,21 +139,12 @@ function renderPets() {
         localStorage.setItem("selectedCat", JSON.stringify(pet));
         window.location.href = "detailPaw.html";
     });
-
-    container.appendChild(card);
-    // document.body.appendChild(ca rd);
-    
-    // card.querySelector(".btn").addEventListener("click", () => {
-        // localStorage.setItem("selectedCat", JSON.stringify(cat));
-        // window.location.href = "detailPaw.html";
-    //   });
   });
 
   if (visiblePets >= cats.length) {
     loadMoreBtn.style.display = "none";
   }
 }
-
 renderPets();
 
 loadMoreBtn.addEventListener("click", () => {

@@ -1,7 +1,7 @@
 <?php
 // models/CatModel.php
 class CatModel {
-    public static function allAvailable(PDO $pdo, int $limit = 20, int $offset = 0) {
+    public static function getAll(PDO $pdo, int $limit = 20, int $offset = 0) {
         $stmt = $pdo->prepare("SELECT * FROM tb_masterkucing WHERE statusKucing = 'tersedia' ORDER BY createdDate DESC LIMIT :limit OFFSET :offset");
         $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
         $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
@@ -10,7 +10,16 @@ class CatModel {
     }
 
     public static function findById(PDO $pdo, int $id) {
-        $stmt = $pdo->prepare("SELECT * FROM tb_masterkucing WHERE idKucing = :id LIMIT 1");
+        $stmt = $pdo->prepare("
+        SELECT 
+            k.*,
+            u.namaUser AS namaPemilik
+        FROM tb_masterkucing k
+        LEFT JOIN tb_users u 
+            ON k.idPemilik = u.idUser
+        WHERE k.idKucing = :id
+        LIMIT 1
+    ");
         $stmt->execute([':id' => $id]);
         return $stmt->fetch();
     }
@@ -37,4 +46,8 @@ class CatModel {
         $stmt = $pdo->prepare("UPDATE tb_masterkucing SET statusKucing = :status WHERE idKucing = :id");
         return $stmt->execute([':status' => $status, ':id' => $id]);
     }
+    
+    public static function countAll(PDO $pdo) {
+        $stmt = $pdo->query("SELECT COUNT(*) FROM tb_masterkucing WHERE statusKucing = 'tersedia'");
+        return (int)$stmt->fetchColumn();}
 }

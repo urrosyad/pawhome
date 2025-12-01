@@ -1,9 +1,13 @@
 <?php
-require_once "app/config.php";      
-include "views/layouts/header.php";
-include "views/layouts/navbar.php";
-// include "app/db.php"
+require_once  __DIR__ ."/app/config.php";
+require_once __DIR__ ."/app/db.php";
+include __DIR__ ."/views/layouts/header.php";
+include __DIR__ ."/views/layouts/navbar.php";
+require_once __DIR__ .'/controllers/CatsController.php';
+require_once __DIR__ .'/app/auth.php';
+validateSession($pdo);
 ?>
+
     <!-- Contact Form -->
     <section class="contactSection">
       <p>

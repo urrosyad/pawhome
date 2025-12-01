@@ -1118,6 +1118,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        cursor: pointer;
         }
 
         .pet-card:hover {
@@ -1700,3 +1701,148 @@ HALAMAN DETAILPAW
       .adoptBtn:hover {
         background: #820036;
       }
+
+
+/* ================================
+HALAMAN REGISTER
+================================ */
+.loginSection,
+.registerSection {
+  max-width: 450px;
+  margin: 5rem auto;
+  padding: 2.5rem 2rem;
+  background: #fff7fb;
+  border-radius: 20px;
+  border: 2px solid #f3c1d3;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(144, 28, 65, 0.08);
+}
+
+.loginSection h2,
+.registerSection h2 {
+  color: #901C41;
+  font-size: 26px;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+/* ---------- FORM ---------- */
+
+#loginForm,
+#registerForm {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+#loginForm input,
+#registerForm input,
+#registerForm textarea {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 2px solid #e79ac2;
+  outline: none;
+  font-size: 14px;
+  font-family: "Outfit", sans-serif;
+  transition: 0.3s ease;
+  resize: none;
+}
+
+#loginForm input:focus,
+#registerForm input:focus,
+#registerForm textarea:focus {
+  border-color: #901C41;
+  box-shadow: 0 0 7px rgba(144, 28, 65, 0.2);
+}
+
+/* ---------- BUTTON ---------- */
+
+#loginForm button,
+#registerForm button {
+  margin-top: 10px;
+  background: #901C41;
+  padding: 12px;
+  border: none;
+  border-radius: 14px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: .5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#loginForm button:hover,
+#registerForm button:hover {
+  background: #780134;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(144, 28, 65, 0.2);
+}
+
+#loginForm button:active,
+#registerForm button:active {
+  transform: scale(0.96);
+}
+
+/* ---------- LINK SWITCH ---------- */
+
+.loginSection h1,
+.registerSection h1 {
+  font-size: 14px;
+  margin-top: 20px;
+  color: #444;
+  font-weight: 400;
+}
+
+.loginSection h1 a,
+.registerSection h1 a {
+  color: #901C41;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.loginSection h1 a:hover,
+.registerSection h1 a:hover {
+  text-decoration: underline;
+  color: #780134;
+}
+
+/* ---------- NOTIFICATION ---------- */
+
+.notif {
+  margin-bottom: 15px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.notif.error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 2px solid #f5c6cb;
+}
+
+.notif.success {
+  background: #d4edda;
+  color: #155724;
+  border: 2px solid #c3e6cb;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 600px) {
+
+  .loginSection,
+  .registerSection {
+    margin: 2rem 1rem;
+    padding: 2rem 1.4rem;
+  }
+
+  .loginSection h2,
+  .registerSection h2 {
+    font-size: 22px;
+  }
+}
+

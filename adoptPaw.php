@@ -1,78 +1,59 @@
 <?php
-require_once "app/config.php";      
-include "views/layouts/header.php";
-include "views/layouts/navbar.php";
-// include "app/db.php"
+require_once  __DIR__ . "/app/config.php";
+require_once __DIR__ . "/app/db.php";
+include __DIR__ . "/views/layouts/header.php";
+include __DIR__ . "/views/layouts/navbar.php";
+require_once __DIR__ . '/controllers/CatsController.php';
+require_once __DIR__ .'/app/auth.php';
+validateSession($pdo);
+
+$limit = 6; // jumlah card per page
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$offset = ($page - 1) * $limit;
+$cats = CatsController::list($pdo, $limit, $offset);
+$totalCats = CatsController::count($pdo);
+$totalPages = ceil($totalCats / $limit);
+
+function pastelColor(){
+  $r = rand(180, 255);
+  $g = rand(180, 255);
+  $b = rand(180, 255);
+  return "rgb($r,$g,$b)";}
 ?>
 
-  <section class="adoptPaw-section">
-    <h1 class="adoptPaw-title">Temukan Sahabat Barumu 🐾</h1>
-    <div id="petContainer" class="pet-container"></div>
-    <button id="loadMoreBtn" class="load-more">Lihat Semua</button>
-  </section>
-
-        <!-- Footer -->
-    <footer class="footer" id="contact">
-      <div class="footerContainer">
-        <div class="footerBrand">
-          <div class="footerLogo">
-            <div class="footerLogoIcon">
-              <img src="./images/pawHomeLogo.png" alt="logo pawHome">
-            </div>
-          </div>
-          <p class="footerTagline">Where every paw finds a loving home</p>
-          <div class="footerSocial">
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-facebook"></i>
-            <i class="fab fa-whatsapp"></i>
-            <i class="fab fa-twitter"></i>
-          </div>
+<section class="adoptPaw-section">
+  <h1 class="adoptPaw-title">Temukan Sahabat Barumu 🐾</h1>
+  <div id="petContainer" class="pet-container">
+    <?php foreach ($cats as $cat): ?>
+      <div
+        class="pet-card"
+        style="--card-color: <?= pastelColor() ?>"
+      >
+        <img
+          src="<?= BASE_URL ?>images/<?= htmlspecialchars($cat['fotoKucing']) ?>"
+          alt="<?= htmlspecialchars($cat['namaKucing']) ?>">
+        <div class="pet-info">
+          <h3 class="pet-name"><?= htmlspecialchars($cat['namaKucing']) ?></h3>
+          <p class="pet-type"><?= htmlspecialchars($cat['jenisKucing']) ?></p>
+          <button class="detailBtn" onclick="goToDetail(<?= $cat['idKucing'] ?>)">Lihat Detail</button>
         </div>
-
-        <div class="footerLinks">
-          <h3 class="footerSectionTitle">Quick Links</h3>
-          <ul class="footerList">
-            <li class="footerListItem">
-              <a href="index.html" class="footerListLink">Home</a>
-            </li>
-            <li class="footerListItem">
-              <a href="about.html" class="footerListLink">About</a>
-            </li>
-            <li class="footerListItem">
-              <a href="services.html" class="footerListLink">Service</a>
-            </li>
-            <li class="footerListItem">
-              <a href="contact.html" class="footerListLink">Contact</a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="footerLinks">
-          <h3 class="footerSectionTitle">Our Service</h3>
-          <ul class="footerlist">
-            <li class="footerListItem">
-              <a href="#" class="footerListLink">AdoptPaw</a>
-            </li>
-            <li class="footerListItem">
-              <a href="#" class="footerListLink">OpenPaw</a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="footerContact">
-          <h3 class="footerSectionTitle">Stay Connected</h3>
-          <ul class="footerList">
-            <li class="footerListItem">@pawhome.com</li>
-            <Li class="footerlistItem">Surabaya, Indonesia</li>
-          </ul>
-            </div>
-        </div>
-      <div class="footerBottom">
-        Kelompok 3 2024C | Copyright © 2025 PawHome.
       </div>
-    </footer>
+    <?php endforeach; ?>
+  </div>
+  <?php if ($page < $totalPages): ?>
+    <a href="?page=<?= $page + 1 ?>" class="load-more">
+      Lihat Semua
+    </a>
+  <?php endif; ?>
+</section>
+<script>
+  const BASE_URL = "<?= BASE_URL ?>";
 
-    <script src="paws.js"></script>
-    <script src="main.js"></script>
-  </body>
-</html>
+  function goToDetail(id) {
+    window.location.href = BASE_URL + "detailPaw.php?id=" + id;
+  }
+</script>
+
+<?php
+include __DIR__ . "/views/layouts/footer.php";
+?>

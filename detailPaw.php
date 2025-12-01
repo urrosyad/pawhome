@@ -1,41 +1,57 @@
-<?php 
-require_once 'app/config.php';
-include 'views/layouts/header.php';
-include 'views/layouts/navbar.php';
+<?php
+require_once  __DIR__ . "/app/config.php";
+require_once __DIR__ . "/app/db.php";
+include __DIR__ . "/views/layouts/header.php";
+include __DIR__ . "/views/layouts/navbar.php";
+require_once __DIR__ . '/controllers/CatsController.php';
+require_once __DIR__ .'/app/auth.php';
+validateSession($pdo);
+
+// Validasi parameter ID
+if (!isset($_GET['id'])) {
+  echo "<p>😿 ID kucing tidak ditemukan.</p>";
+  exit;
+}
+
+// Ambil Idkucing dari halaman sebleumnya
+$id = $_GET['id'];
+$cat = CatsController::detail($pdo, $id);
+
+// Validasi kucing 
+if (!$cat) {
+  echo "<p>😿 Kucing dengan ID tersebut tidak ditemukan.</p>";
+  exit;
+}
 ?>
 
-    <div class="detailContainer" id="catDetail"></div>
+<div class="detailContainer">
+  <div class="detailPaw">
+    <h2><?= htmlspecialchars($cat['namaKucing']) ?></h2>
+    <p><b>Jenis:</b> <?= htmlspecialchars($cat['jenisKucing']) ?></p>
+    <p><b>Nama Pemilik:</b> <?= htmlspecialchars($cat['namaPemilik']) ?></p>
+    <p><b>Jenis Kelamin:</b> <?= htmlspecialchars($cat['genderKucing']) ?></p>
+    <p><b>Deskripsi:</b> <?= htmlspecialchars($cat['deskripsiKucing']) ?></p>
+    <p><b>Makanan Favorit:</b> <?= htmlspecialchars($cat['makananFav']) ?></p>
+    <p><b>Mainan Favorit:</b> <?= htmlspecialchars($cat['mainanFav']) ?></p>
 
-    <script>
-      const cat = JSON.parse(localStorage.getItem("selectedCat"));
-      const container = document.getElementById("catDetail");
+    <button class="adoptBtn" onclick="adoptNow('<?= htmlspecialchars($cat['namaKucing']) ?>')">
+      Adopsi Sekarang
+    </button>
+  </div>
 
-      if (!cat) {
-        container.innerHTML = "<p>😿 Data kucing tidak ditemukan.</p>";
-      } else {
-        container.innerHTML = `
-        <div class="detailPaw">
-          <h2>${cat.name}</h2>
-          <p><b>Jenis:</b> ${cat.type}</p>
-          <p><b>Pemilik:</b> ${cat.owner}</p>
-          <p><b>Jenis Kelamin:</b> ${cat.gender}</p>
-          <p><b>Deskripsi:</b> ${cat.description}</p>
-          <p><b>Makanan Kesukaan:</b> ${cat.favoriteFood}</p>
-          <p><b>Mainan Favorit:</b> ${cat.favoriteToy}</p>
-          <button class="adoptBtn">Adopsi Sekarang</button>
-        </div>
-        <div class="catImg">
-          <img src="${cat.img}" alt="${cat.name}">
-        </div>
-      `;
-      }
-      
-      document.querySelector(".adoptBtn").addEventListener("click", () => {
-      alert(`Selamat! Kamu telah mengadopsi ${cat.name} 🐾`);
-      window.location.href = "index.html"; // kembali ke halaman home
-      });
-    </script>
-    <script src="paws.js"></script>
-    <script src="main.js"></script>
-  </body>
-</html>
+  <div class="catImg">
+    <img src="<?= BASE_URL ?>images/<?= htmlspecialchars($cat['fotoKucing']) ?>"
+      alt="<?= htmlspecialchars($cat['namaKucing']) ?>">
+  </div>
+
+</div>
+
+<script>
+  function adoptNow(name) {
+    window.location.href = "<?= BASE_URL ?>";
+  }
+</script>
+
+<?php
+include __DIR__ . "/views/layouts/footer.php"
+?>

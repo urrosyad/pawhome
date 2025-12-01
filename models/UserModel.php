@@ -1,4 +1,4 @@
-2<?php
+<?php
 // models/UserModel.php
 class UserModel {
     public static function findByEmail(PDO $pdo, string $email) {
@@ -14,15 +14,14 @@ class UserModel {
     }
 
     public static function create(PDO $pdo, array $data) {
-        $stmt = $pdo->prepare("INSERT INTO tb_users (namaUser, emailUser, passwordUser, telpUser, alamatUser, roleUser, profilUser) VALUES (:nama, :email, :password, :telp, :alamat, :role, :profil)");
+        $stmt = $pdo->prepare("INSERT INTO tb_users (namaUser, emailUser, passwordUser, telpUser, alamatUser, roleUser) VALUES (:nama, :email, :password, :telp, :alamat, :role)");
         $stmt->execute([
             ':nama' => $data['nama'],
             ':email' => $data['email'],
             ':password' => $data['password'], // hashed
             ':telp' => $data['telp'] ?? null,
             ':alamat' => $data['alamat'] ?? null,
-            ':role' => $data['role'] ?? 'user',
-            ':profil' => $data['profil'] ?? null
+            ':role' => $data['role'] ?? 'user'
         ]);
         return (int)$pdo->lastInsertId();
     }
