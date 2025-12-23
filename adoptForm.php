@@ -11,7 +11,7 @@ if (!isLoggedIn()) {
     header('Location: login.php');
     exit;
 }
-
+    
 $successMessage = '';
 $errorMessage = '';
 
@@ -47,6 +47,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <form id="openPawForm"  method="POST" enctype="multipart/form-data">
 <!-- <form action="openPaw_submit.php" method="POST" enctype="multipart/form-data"> -->
+    <div class="form-group">
+        <label for="pemilik">Nama Pemilik</label>
+        <input type="text" id="pemilik" name="pemilik" placeholder="Contoh: Rosyad Al Fikri" />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email / Kontak</label>
+        <input type="email" id="email" name="email" placeholder="Contoh: rosyad@gmail.com" />
+      </div>
+
       <div class="form-group">
         <label for="namaKucing">Nama Kucing</label>
         <input type="text" id="namaKucing" name="namaKucing" placeholder="Contoh: Miko" />

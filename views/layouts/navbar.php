@@ -17,6 +17,7 @@ require_once __DIR__ . '/../../app/auth.php';
           <li><a href="<?= BASE_URL ?>services.php" class="navLink">Service</a></li>
           <li><a href="<?= BASE_URL ?>about.php" class="navLink">About</a></li>
           <li><a href="<?= BASE_URL ?>contact.php" class="navLink">Contact</a></li>
+          <li><a href="<?= BASE_URL ?>profile.php" class="navLink">Profile</a></li>
           <?php if (isLoggedIn()): ?>
             <a href="<?= BASE_URL ?>logout.php" class="btnLogin">Logout</a>
           <?php else: ?>

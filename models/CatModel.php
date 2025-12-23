@@ -25,7 +25,7 @@ class CatModel {
     }
 
     public static function create(PDO $pdo, array $data) {
-        $stmt = $pdo->prepare("INSERT INTO tb_masterkucing (idPemilik, namaKucing, jenisKucing, genderKucing, umurKucing, deskripsiKucing, makananFav, mainanFav, fotoKucing, biayaAdopsi, statusKucing) VALUES (:pemilik, :nama, :jenis, :gender, :umur, :deskripsi, :makanan, :mainan, :foto, :biaya, :status)");
+        $stmt = $pdo->prepare("INSERT INTO tb_masterkucing (idPemilik, namaKucing, jenisKucing, genderKucing, umurKucing, deskripsiKucing, makananFav, mainanFav, fotoKucing, statusKucing) VALUES (:pemilik, :nama, :jenis, :gender, :umur, :deskripsi, :makanan, :mainan, :foto, :status)");
         $stmt->execute([
             ':pemilik' => $data['idPemilik'] ?? null,
             ':nama' => $data['namaKucing'],
@@ -36,7 +36,6 @@ class CatModel {
             ':makanan' => $data['makananFav'] ?? null,
             ':mainan' => $data['mainanFav'] ?? null,
             ':foto' => $data['fotoKucing'] ?? null,
-            ':biaya' => $data['biayaAdopsi'] ?? 0,
             ':status' => $data['statusKucing'] ?? 'tersedia'
         ]);
         return (int)$pdo->lastInsertId();
@@ -46,6 +45,7 @@ class CatModel {
         $stmt = $pdo->prepare("UPDATE tb_masterkucing SET statusKucing = :status WHERE idKucing = :id");
         return $stmt->execute([':status' => $status, ':id' => $id]);
     }
+    
     
     public static function countAll(PDO $pdo) {
         $stmt = $pdo->query("SELECT COUNT(*) FROM tb_masterkucing WHERE statusKucing = 'tersedia'");

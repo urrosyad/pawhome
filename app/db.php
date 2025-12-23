@@ -21,3 +21,4 @@ try {
     error_log($e->getMessage());
     die('Database connection failed.');
 }
+// $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

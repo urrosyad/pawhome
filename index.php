@@ -8,6 +8,19 @@ require_once __DIR__ .'/app/auth.php';
 validateSession($pdo);
 ?>
 
+<?php if (!empty($_SESSION['flash_success'])): ?>
+<script>
+    alert("<?= $_SESSION['flash_success']; ?>");
+</script>
+<?php unset($_SESSION['flash_success']); endif; ?>
+
+<?php if (!empty($_SESSION['flash_error'])): ?>
+<script>
+    alert("<?= $_SESSION['flash_error']; ?>");
+</script>
+<?php unset($_SESSION['flash_error']); endif; ?>
+
+
 <section class="hero reveal" id="home">
   <img src="<?= BASE_URL ?>images/kuning.svg" alt="decor top right" class="heroDecor heroDecorLeft" />
   <img src="<?= BASE_URL ?>images/merah.svg" alt="decor bottom left" class="heroDecor heroDecorRight" />
@@ -98,7 +111,7 @@ validateSession($pdo);
         onclick="goToDetail(<?= $cat['idKucing'] ?>)">
         <div class="petCardImage">
           <img
-            src="<?= BASE_URL ?>images/<?= htmlspecialchars($cat['fotoKucing']) ?>"
+            src="<?= BASE_URL ?>images/uploads/<?= htmlspecialchars($cat['fotoKucing']) ?>"
             alt="<?= htmlspecialchars($cat['namaKucing']) ?>">
         </div>
         <div class="petCardContent">
